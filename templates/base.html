@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!--<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />-->
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<!--   <title>edit-post</title> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+	<link href="assets/mdb/css/bootstrap.css" rel="stylesheet">
+	<!-- Material Design Bootstrap -->
+	<link href="assets/mdb/css/mdb.min.css" rel="stylesheet">
+	<!-- SCRIPTS -->
+	 <!-- JQuery -->
+	 <script type="text/javascript" src="assets/mdb/js/jquery-3.1.1.min.js"></script>
+	 <!-- Bootstrap dropdowns -->
+	 <script type="text/javascript" src="assets/mdb/js/popper.min.js"></script>
+	 <!-- Bootstrap core JavaScript -->
+	 <script type="text/javascript" src="assets/mdb/js/bootstrap.min.js"></script>
+	 <!-- MDB core JavaScript -->
+	 <script type="text/javascript" src="assets/mdb/js/mdb.min.js"></script>
+
+<!-- <title>First Website</title> -->
+
+<style type="text/css">
+
+	.container{
+
+  	font-size: 20px;
+
+  }
+
+
+
+
+/*@media (max-width: 576px)
+{
+
+#small{
+
+  font-size: 10px;
+
+  width: 768px;
+}
+
+}
+
+@media (min-width: 576px)
+{
+
+  .nav-link {
+
+    padding-left: 100px;
+    font-size: 20px;
+  }
+
+}*/
+#alter
+{
+width: 400px;
+height: 350px;
+}
+li{
+
+  padding-left: 20px;
+}
+
+a{
+
+font-size: 18px;
+
+
+}
+}
+	</style>
+
+
+  </head>
+
+<body>
+
+<!--Main Navigation-->
+<header>
+
+  <nav class="navbar navbar-expand-lg navbar-dark default-color" id="small">
+    <a class="navbar-brand" href="#"><strong>Medium</strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        {% if user.is_authenticated %}
+
+        <li class="nav-item active">
+          <a class="nav-link" href="">News <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="">Post</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="">Edit</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </li>
+      </ul>
+
+        {% else %}
+
+        <li class="nav-item active">
+          <a class="nav-link" href="">Home </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="">Signup</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'Login_page' %}">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+      </ul>
+      {% endif %}
+		</div>
+		 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link"><i class="fa fa-facebook"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"><i class="fa fa-twitter"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"><i class="fa fa-instagram"></i></a>
+        </li>
+      <!-- Dropdown -->
+			<!-- <li class="nav-item dropdown">
+ <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OBJECTS
+ </a>
+ <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+ <a class="dropdown-item waves-effect waves-light" href="/categories">CATEGORIES</a>
+ <a class="dropdown-item waves-effect waves-light" href="/subjects">SUBJECTS</a>
+ <a class="dropdown-item waves-effect waves-light" href="/modules">MODULES</a>
+ <a class="dropdown-item waves-effect waves-light" href="/packages">PACKAGES</a>
+ </div>
+ </li> -->
+        <li class="nav-item">
+          <a class="nav-link"><i class="fa fa-user-o" aria-hidden="true"></i></a>
+
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+</header>
+
+
+<!--Main Navigation-->
+  <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+
+  <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+
+  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+{% block body_block %}
+    {# Anything outside of this will be inherited if you use extend.#}
+    {% endblock %}
+
+    {% block head %}
+    {% endblock %}
+    <script>
+  (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+  function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+  e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+  e.src='//www.google-analytics.com/analytics.js';
+  r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+  ga('create','UA-52746336-1');ga('send','pageview');
+  var isCompleted = {};
+  function sampleCompleted(sampleName){
+    if (ga && !isCompleted.hasOwnProperty(sampleName)) {
+      ga('send', 'event', 'WebCentralSample', sampleName, 'completed');
+      isCompleted[sampleName] = true;
+    }
+  }
+</script>
+</body>
+
+</html>

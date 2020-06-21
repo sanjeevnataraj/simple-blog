@@ -1,0 +1,69 @@
+<html>
+  <head>
+    Test of ajax dynamically 
+    <br>
+  </head>
+  <body>
+    
+    {% for row in form %}
+    {{forloop.counter}}
+    <input type="checkbox" value="{{row.id}}" name="{{row.name}}">
+    {{row.name}}
+    <br>
+    {% endfor %}
+    <div class="descip">
+    {% for row in form %}
+    <br>
+      {{row.name}}
+      {{row.desc}}
+      <br>
+    {% endfor %}
+  </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $('input[type="checkbox"]').click(function()
+  {
+    if($(this).prop("checked") == true){
+      value = $(this).val()
+      $.ajax({
+          type: "GET",
+          url: '/home/',
+          data:{'city':value},
+          success: function(response)
+          {
+            console.log(response.length)
+            for(var i=0;i<response.length;i++)
+            {
+              $('.descip').html(response[0]['fields']['desc']);
+              $('descip').after('<br>');
+            }
+          }
+          });
+    }
+    else{
+      value = $(this).val()
+      $.ajax({
+          type: "GET",
+          url: '/home/',
+          data: {},
+          success: function(response)
+          {
+            $('.descip').html("");
+            console.log(response.length)
+            if (response.length==4){
+            for(var i=0;i<response.length;i++)
+            {
+              console.log(response[i]['fields']['desc'])
+              $('.descip').append(response[i]['fields']['name'] +'  '+ response[i]['fields']['desc']+'<br>');
+            }
+          }
+          }
+          });
+    }
+
+  })
+});
+</script>
+</html>

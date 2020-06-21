@@ -1,0 +1,92 @@
+
+
+<html>
+        {% block head %}
+        <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                <title>Sign Up Form by Colorlib</title>
+         {% load static %}
+        
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <meta http-equiv="x-ua-compatible" content="ie=edge">
+          <title>signup</title>
+          <link rel="stylesheet" href="{% static 'new/fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+          <link rel="stylesheet"  href="{% static 'new/css/style.css' %}">
+         </script>
+        </head>
+        {% endblock %}
+        
+        {% block body_block %}
+        
+<!-- Sing in  Form -->
+        <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="{% static 'new/images/signin-image.jpg' %}" alt="sing up image"></figure>
+                        <a href="{% url 'signup' %}" >Create an account</a>
+                    </div>
+
+                    <div class="signin-form">
+                        <h2 class="form-title">Sign in</h2>
+                        <form method="POST" class="login-form" id="login-form">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                {{form.username}}
+                            </div>
+                            <div class="form-group">
+                                <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                                {{form.password}}
+                            </div>
+                            <span class="login_error"></span>
+                            <div class="form-group">
+                                <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                            </div>
+                        </form>
+                        <div class="social-login">
+                            <span class="social-label">Or login with</span>
+                            <ul class="socials">
+                                <li><a href="{% url 'social:begin' 'github' %}"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+        
+        
+        
+        <!--/Form with header-->
+        
+         <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+        
+          <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+        
+          <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+        
+          <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+        
+          <script type="text/javascript" src="{% static 'js/blog.js' %}"></script>
+          
+          <script src="{% static 'new/vendor/jquery/jquery.min.js' %}"></script>
+          
+          <script src="{% static 'new/js/main.js' %}"></script>
+        
+        </body>
+        
+        {% endblock %}
+        
+        </html>
+        

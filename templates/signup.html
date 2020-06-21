@@ -1,0 +1,93 @@
+
+
+<html>
+{% block head %}
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Sign Up Form by Colorlib</title>
+ {% load static %}
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>signup</title>
+  <link rel="stylesheet" href="{% static 'new/fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+  <link rel="stylesheet"  href="{% static 'new/css/style.css' %}">
+ </script>
+</head>
+{% endblock %}
+    
+{% block body_block %}
+
+<div class="main">
+    <!-- Sign up form -->
+    <section class="signup">
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-form">
+                    <h2 class="form-title">Sign up</h2>
+                    <form method="POST" class="register-form" id="register-form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            {{form.username}}
+                            <span class="name-error"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email"><i class="zmdi zmdi-email"></i></label>
+                            {{form.email}}
+                        </div>
+                        <div class="form-group">
+                            <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                            {{form.password}}
+                            <span class="password"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                            <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
+                            <span class="re-password"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                            <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                        </div>
+                        <div class="form-group form-button">
+                            <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/ style="background-color:#1384ec">
+                        </div>
+                    </form>
+                </div>
+                <div class="signup-image">
+                    <figure><img src="{% static 'new/images/signup-image.jpg' %}" alt="sing up image"></figure>
+                    <a href="{% url 'login' %}" >I am already member</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+
+
+
+
+<!--/Form with header-->
+
+ <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+
+  <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+
+  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+
+  <script type="text/javascript" src="{% static 'js/blog.js' %}"></script>
+  
+  <script src="{% static 'new/vendor/jquery/jquery.min.js' %}"></script>
+  
+
+</body>
+
+{% endblock %}
+
+</html>
